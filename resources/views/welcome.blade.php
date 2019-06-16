@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -17,7 +17,6 @@
     <body>
         <div class="wrapper">
             <header>
-            <?php require_once 'partials/menue.php'; ?>
             <div class="relative width100">
                     <nav class="floating-navi row">
                         <ul class="space-between">
@@ -30,8 +29,8 @@
                                 </form>
                                 <!-- SEARCH ENTITIES: &telrec; &#x02315; &#8981; -->
                             </li>
-                            <li class="#"><a href="login.php">Login</a></li>
-                            <li class="#"><a href="register.php">Register</a></li>
+                            <li class="#"><a href="login.blade.php">Login</a></li>
+                            <li class="#"><a href="register.blade.php">Register</a></li>git
                         </ul>
                     </nav>
                 </div>
@@ -45,9 +44,10 @@
                         </div>
                         <div class="center FroBack">
                             <ul class="center column">
-                                <li class="block"><a href="design.php">Design</a></li>
-                                <li class="block"><a href="frontend.php">Frontend</a></li>
-                                <li class="block"><a href="backend.php">Backend</a></li>
+                                <li class="block"><a href="design.blade.php">Design</a></li>
+                                <li class="block"><a href="frontend.blade.php">Frontend</a></li>
+                                <li class="block"><a href="backend.blade.php">Backend</a></li>
+                                <li class="block"><a href="fun.blade.php">Fun</a></li>
                             </ul>
                         </div>
                         <div class="webTalks">
