@@ -4,7 +4,7 @@
 {{-- <div class="container"> --}}
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card text-white bg-dark mb-3">
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
@@ -32,8 +32,9 @@
                           {{-- <td><a href="/articles/{{$article->id}}/edit" class="btn btn-default">Edit</a></td> --}}
                         <td>{{$article->content}}
                         <br>
+                          <br>
                         {!! Form::open(['action'=> ['ArticlesController@destroy', $article->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
-                          <a href="articles/{{$article->id}}/edit" class="btn btn-light">Artikel editieren</a>
+                          <a href="articles/{{$article->id}}/edit" class="btn btn-secondary">Artikel editieren</a>
                             {{Form::hidden('_method', 'DELETE')}}
                             {{Form::submit('Artikel Löschen', ['class' => 'btn btn-danger'])}}
                           {!! Form::close() !!}
@@ -55,7 +56,8 @@
                 @else
                     <p>Du hast noch keine Artikel geschrieben</p>
                 @endif
-                <a href="{{ url()->previous() }}" class="btn btn-light">Zurück zur Artikelüberischt</a>
+{{--               <a href="{{ url()->previous() }}"></a>--}}
+                <a href="articles/" class="btn btn-dark">Zurück zur Artikelüberischt</a>
 
             </div>
         </div>

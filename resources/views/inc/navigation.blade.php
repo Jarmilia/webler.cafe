@@ -30,7 +30,7 @@
 </nav> --}}
 <nav class="navbar navbar-expand-lg navbar-inverse bg-inverse">
   <div class="container">
-    <a class="navbar-brand" href="{{ url('/') }}">
+    <a class="navbar-brand VT323" href="{{ url('/') }}">
       {{ config('app.name', 'webler.cafe') }}
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,12 +77,12 @@
           @endif
         @else
           <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->username }} <span class="caret"></span>
             </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/articles/create">Artikel schreiben</a>
+            <a class="dropdown-item" href="articles/create">Artikel schreiben</a>
             <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
@@ -113,7 +113,7 @@
             {{-- <ul class="navbar-nav mr-auto">
 
             </ul> --}}
-            <ul class="nav navbar-nav">
+            <ul class="nav nav-tabs">
                 {{-- <li><a href="/">Startseite</a></li> --}}
                 <li class="nav-item dropdown main-nav-li"><a href="frontend/">Frontend</a></li>
                 <li class="nav-item dropdown main-nav-li"><a href="backend/">Backend</a></li>
@@ -124,7 +124,7 @@
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/os">Betriebssysteme</a>
                     <a class="dropdown-item" href="/editors">Editoren</a>
-                    <a class="dropdown-item" href="/har dware">Hardware</a>
+                    <a class="dropdown-item" href="/hardware">Hardware</a>
                     <a class="dropdown-item" href="/editors">Editoren</a>
                     <a class="dropdown-item"  href="/fun">Unterhaltung</a><
                     {{-- <div class="dropdown-divider"></div>
