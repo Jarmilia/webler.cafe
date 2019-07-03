@@ -11,9 +11,14 @@
             {{Form::label('content', 'Inhalt')}}
             {{Form::textarea('content', $article->content, ['id' => 'article-ckeditor', 'class' => 'form-control', 'placeholder' => 'Text des Artikels'])}}
         </div>
-        <div class="form-group">
-            {{Form::file('cover_image')}}
-        </div>
+    <img style="width:50%;" src="{{$article->cover_image}}">
+    <div class="form-group">
+        {{Form::file('cover_image')}}
+{{--        {!! Form::open(['action'=> ['ArticlesController@deleteImage', $article->id], 'method' => 'POST', 'class' => 'pull-right']) !!}--}}
+{{--          {{Form::hidden('_method', 'DELETE')}}--}}
+{{--          {{Form::submit('Bild Löschen', ['class' => 'btn btn-danger'])}}--}}
+{{--        {!! Form::close() !!}--}}
+    </div>
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Artikel Speichern', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}

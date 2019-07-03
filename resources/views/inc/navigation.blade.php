@@ -42,9 +42,9 @@
         {{-- <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li> --}}
-        <li class="nav-item">
+        {{-- <li class="nav-item">
           <a class="nav-link" href="#">Shop</a>
-        </li>
+        </li> --}}
         {{-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Dropdown
@@ -115,16 +115,18 @@
             </ul> --}}
             <ul class="nav navbar-nav">
                 {{-- <li><a href="/">Startseite</a></li> --}}
-                <li class="nav-item dropdown"><a href="/frontend">Frontend</a></li>
-                <li class="nav-item dropdown"><a href="/backend">Backend</a></li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weiteres
+                <li class="nav-item dropdown main-nav-li"><a href="frontend/">Frontend</a></li>
+                <li class="nav-item dropdown main-nav-li"><a href="backend/">Backend</a></li>
+                <li class="nav-item dropdown main-nav-li"><a href="design/">Design</a></li>
+                <li class="nav-item dropdown main-nav-li">
+                  <a class="nav-link dropdown-toggle padding0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weiteres
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="/os">Betriebssysteme</a>
                     <a class="dropdown-item" href="/editors">Editoren</a>
                     <a class="dropdown-item" href="/har dware">Hardware</a>
                     <a class="dropdown-item" href="/editors">Editoren</a>
+                    <a class="dropdown-item"  href="/fun">Unterhaltung</a><
                     {{-- <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a> --}}
                   </div>
@@ -133,7 +135,6 @@
                     <li><a href="/har dware">Hardware</a></li>
                     <li><a href="/challenges">Challenges</a></li> --}}
                 </li>
-                <li class="nav-item dropdown"><a href="/fun">Unterhaltung</a></li>
             </ul>
             <!-- Right Side Of Navbar -->
             {{-- <ul class="navbar-nav ml-auto">

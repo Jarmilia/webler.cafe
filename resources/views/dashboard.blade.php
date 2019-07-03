@@ -15,7 +15,7 @@
                     @endif
 
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="/articles/create">Artikel verfassen</a></li>
+                        <li><a href="articles/create">Artikel verfassen</a></li>
                     </ul>
                 </div>
 

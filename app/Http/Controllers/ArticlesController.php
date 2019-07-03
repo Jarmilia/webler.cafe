@@ -63,60 +63,61 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-      // $this->validate($request, [
-      //     'title' => 'required',
-      //     'content' => 'required',
-      //     'cover_image' => 'image|nullable|max:1999'
-      //     ]);
-      request()->validate([
-          'title' => 'required',
-          'content' => 'required',
-          'cover_image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:1999'
-          ]);
-
-
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
-
-        request()->image->move(public_path('cover_images'), $imageName);
-
-        $article = new Article;
-        $article->title = $request->input('title');
-        $article->content = $request->input('content');
-        $article->user_id = auth()->user()->id;
-        $article->cover_image = $fileNameToStore;
-        $article->save();
-
-        return back()
-
-            ->with('success','You have successfully upload image.')
-
-            ->with('cover_image',$imageName);
-
+       $this->validate($request, [
+           'title' => 'required',
+           'content' => 'required',
+           'cover_image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:1999'
+        ]);
+      //Handle File upload
+      if($request->hasFile('cover_image')){
+        // Get filename with the extension
+        $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+        //Get just filename
+        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //Get just extension
+        $extension = $request->file('cover_image')->getClientOriginalExtension();
+        //Filename to store
+        $fileNameToStore = $filename.'_'.time().'.'.$extension;
+        //UploadImage
+        $path = $request->file('cover_image')->storeAs('public/storage/cover_images', $fileNameToStore);
+      } else{
+        $fileNameToStore = 'noimage.png';
+      }
+      //create Article
+      $article = new Article;
+      $article->title = $request->input('title');
+      $article->content = $request->input('content');
+      $article->user_id = auth()->user()->id;
+      $article->cover_image = $fileNameToStore;
+      $article->save();
+      return redirect('/articles')->with('success', 'Du hast ein Artikel geschrieben, danke!');
     }
-            //Handle File upload
-            // if($request->hasFile('cover_image')){
-            //     // Get filename with the extension
-            //     $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-            //     //Get just filename
-            //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //     //Get just extension
-            //     $extension = $request->file('cover_image')->getClientOriginalExtension();
-            //     //Filename to store
-            //     $fileNameToStore = $filename.'_'.time().'.'.$extension;
-            //     //UploadImage
-            //     $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-            // } else{
-            //     $fileNameToStore = 'noimage.png';
-            // }
-            //create Article
-            // $article = new Article;
-            // $article->title = $request->input('title');
-            // $article->content = $request->input('content');
-            // $article->user_id = auth()->user()->id;
-            // $article->cover_image = $fileNameToStore;
-            // $article->save();
-            // return redirect('/articles')->with('success', 'Du hast ein Artikel geschrieben, danke.');
-    //}
+
+//request()->validate([
+//          'title' => 'required',
+//          'content' => 'required',
+//          'cover_image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:1999'
+//          ]);
+//
+//
+//        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+//
+//        request()->image->move(public_path('storage/cover_images'), $imageName);
+//
+//        $article = new Article;
+//        $article->title = $request->input('title');
+//        $article->content = $request->input('content');
+//        $article->user_id = auth()->user()->id;
+//        $article->cover_image = $fileNameToStore;
+//        $article->save();
+//
+//        return back()
+//
+//            ->with('success','Wunderbar! Du hast erfolgreich ein Artikel verfasst, danke!')
+//
+//            ->with('cover_image',$imageName);
+//
+//    }
 
     /**
      * Display the specified resource.
@@ -160,26 +161,36 @@ class ArticlesController extends Controller
             'title' => 'required',
             'content' => 'required'
             ]);
-            // if($request->hasFile('cover_image')){
-            //     // Get filename with the extension
-            //     $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-            //     //Get just filename
-            //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            //     //Get just extension
-            //     $extension = $request->file('cover_image')->getClientOriginalExtension();
-            //     //Filename to store
-            //     $filenNameToStore = $filename.'_'.time().'.'.$extension;
-            //     //UploadImage
-            //     $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-            // }
+             if($request->hasFile('cover_image')){
+                 // Get filename with the extension
+                 $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+                 //Get just filename
+                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                 //Get just extension
+                 $extension = $request->file('cover_image')->getClientOriginalExtension();
+                 //Filename to store
+                 $fileNameToStore = $filename.'_'.time().'.'.$extension;
+                 //UploadImage
+                 $path = $request->file('cover_image')->storeAs('cover_images', $fileNameToStore);
+             }
 
             //create Article
             $article = Article::find($id);
             $article->title = $request->input('title');
             $article->content = $request->input('content');
-            // if($request->hasFile('cover_image')){
-            //     $article->cover_image = $filenNameToStore;
-            // }
+             if($request->hasFile('cover_image')){
+               // Get filename with the extension
+               $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
+               //Get just filename
+               $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+               //Get just extension
+               $extension = $request->file('cover_image')->getClientOriginalExtension();
+               //Filename to store
+               $fileNameToStore = $filename.'_'.time().'.'.$extension;
+               //UploadImage
+               $path = $request->file('cover_image')->storeAs('/cover_images', $fileNameToStore);
+               $article->cover_image = $fileNameToStore;
+             }
             $article->save();
             return redirect('/articles')->with('success', 'Artikel wurde editiert');
     }
@@ -200,10 +211,21 @@ class ArticlesController extends Controller
         }
         if($article->cover_image != 'noimage.jpg'){
             //delete Image
-            Storage::delete('public/cover_images/'.$article->cover_image);
+            Storage::delete('public/storage/cover_images/'.$article->cover_image);
         }
 
         $article->delete();
         return redirect('/articles')->with('success', 'Artikel wurde gelöscht');
     }
+  public function deleteImage($id)
+  {
+    $article = Article::find($id);
+    if(auth()->user()->id !== $article->user_id){
+      return redirect('/articles')->with('error', 'Für diese Seite hast du keine Autorisierung. ');
+    }
+    if($article->cover_image != 'noimage.jpg'){
+      //delete Image
+      Storage::delete('public/storage/cover_images/'.$article->cover_image);
+    }
+  }
 }
