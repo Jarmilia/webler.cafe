@@ -33,12 +33,12 @@
     <a class="navbar-brand VT323" href="{{ url('/') }}">
       {{ config('app.name', 'webler.cafe') }}
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+{{--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">--}}
+{{--      <span class="navbar-toggler-icon"></span>--}}
+{{--    </button>--}}
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+{{--      <ul class="navbar-nav mr-auto">--}}
         {{-- <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li> --}}
@@ -59,12 +59,12 @@
         {{-- <li class="nav-item">
           <a class="nav-link disabled" href="#">Disabled</a>
         </li> --}}
-      </ul>
+{{--      </ul>--}}
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Gebe ein Suchwort ein" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Suche</button>
       </form>
-      <ul class="navbar-nav ml-auto">
+      <ul class=" navbar-dark bg-dark ml-auto">
       <!-- Authentication Links -->
         @guest
           <li class="nav-item">
@@ -100,7 +100,7 @@
   </div>
 </nav>
 <nav class="navbar navbar-expand-lg navbar-inverse">
-    <div class="container">
+    <div class="container wrapper">
         {{-- <a class="navbar-brand" href="{{ url('/') }}">
             {{ config('app.name', 'webler.cafe') }}
         </a> --}}
@@ -108,33 +108,40 @@
             <span class="navbar-toggler-icon"></span>
         </button> --}}
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="column" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             {{-- <ul class="navbar-nav mr-auto">
 
             </ul> --}}
-            <ul class="nav nav-tabs">
+            <ul class="navbar navbar-dark space-around">
                 {{-- <li><a href="/">Startseite</a></li> --}}
-                <li class="nav-item dropdown main-nav-li"><a href="frontend/">Frontend</a></li>
-                <li class="nav-item dropdown main-nav-li"><a href="backend/">Backend</a></li>
-                <li class="nav-item dropdown main-nav-li"><a href="design/">Design</a></li>
-                <li class="nav-item dropdown main-nav-li">
-                  <a class="nav-link dropdown-toggle padding0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weiteres
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/os">Betriebssysteme</a>
-                    <a class="dropdown-item" href="/editors">Editoren</a>
-                    <a class="dropdown-item" href="/hardware">Hardware</a>
-                    <a class="dropdown-item" href="/editors">Editoren</a>
-                    <a class="dropdown-item"  href="/fun">Unterhaltung</a><
+                <li class="nav-item dropdown main-nav-li"><a class="text1-2rem bold" href="frontend/">FRONTEND</a></li>
+                <li class="nav-item dropdown main-nav-li"><a class="text1-2rem bold" href="backend/">BACKEND</a></li>
+                <li class="nav-item dropdown main-nav-li"><a class="text1-2rem bold" href="design/">DESIGN</a></li>
+            </ul>
+          <ul class="navbar navbar-dark">
+                <li class="nav-item dropdown main-nav-li"><a href="/os">Betriebssysteme</a></li>
+                <li class="nav-item dropdown main-nav-li"><a href="/editors">Editoren</a></li>
+                <li class="nav-item dropdown main-nav-li"><a href="/hardware">Hardware</a></li>
+{{--                <li class="nav-item dropdown main-nav-li"><a href="/editors">Editoren</a></li>--}}
+                <li class="nav-item dropdown main-nav-li"><a href="/fun">Unterhaltung</a></li>
+{{--                <li class="nav-item dropdown main-nav-li">--}}
+{{--                  <a class="nav-link dropdown-toggle padding0" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Weiteres--}}
+{{--                  </a>--}}
+{{--                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
+{{--                    <a class="dropdown-item" href="/os">Betriebssysteme</a>--}}
+{{--                    <a class="dropdown-item" href="/editors">Editoren</a>--}}
+{{--                    <a class="dropdown-item" href="/hardware">Hardware</a>--}}
+{{--                    <a class="dropdown-item" href="/editors">Editoren</a>--}}
+{{--                    <a class="dropdown-item"  href="/fun">Unterhaltung</a>--}}
                     {{-- <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Something else here</a> --}}
-                  </div>
+{{--                  </div>--}}
                     {{-- <li><a href="/os">Betriebssysteme</a></li>
                     <li><a href="/editors">Editoren</a></li>
                     <li><a href="/har dware">Hardware</a></li>
                     <li><a href="/challenges">Challenges</a></li> --}}
-                </li>
+{{--                </li>--}}
             </ul>
             <!-- Right Side Of Navbar -->
             {{-- <ul class="navbar-nav ml-auto">

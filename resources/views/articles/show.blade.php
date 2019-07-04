@@ -2,8 +2,10 @@
 
 @section('content')
     {{-- <div class="space-between margin1-3"> --}}
-    <div class="margin-0-auto">
+    <div  class="margin-0-auto">
+      <div id="imageDivId" v-if="image">
         <img class="image-show" src="../storage/storage/cover_images/{{$article->cover_image}}">
+      </div>
         <br>
         <h1 class="margin-0-auto">{{$article->title}}</h1>
         <br>
@@ -27,3 +29,22 @@
     <a href="{{ url()->previous() }}" class="btn btn-light">Zurück zur Artikelüberischt</a>
 
 @endsection
+<script type="text/javascript">
+  const imageDivId = new Vue({
+    el: '#imageDivId',
+    data() {
+      return {
+        image: false,
+      }
+    },
+    methods: {
+      checkUrl(url) {
+        //   let greet = document.querySelectorAll('.greeting');
+        let noimage = 'noimage.png';
+        if(this.firstname.length > 0){
+          this.greeting = true;
+        }
+      }
+    }
+  });
+</script>

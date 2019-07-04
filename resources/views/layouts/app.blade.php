@@ -34,11 +34,16 @@
     <main class="py-4">
       @include('inc.navigation')
       <div class="container">
-        @include('inc.messages')
 
-        @yield('content')
+        @include('inc.messages')
+        <div class="space-between">
+          @include('inc.sidebar')
+          @yield('content')
+        </div>
+
       </div>
     </main>
+        @include('inc.footer')
     {{-- <script src="//cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
     <script>
         CKEDITOR.replace( 'article-ckeditor' );
