@@ -41,8 +41,8 @@
       checkUrl(url) {
         //   let greet = document.querySelectorAll('.greeting');
         let noimage = 'noimage.png';
-        if(this.firstname.length > 0){
-          this.greeting = true;
+        if(this.url != noimage){
+          this.image = true;
         }
       }
     }

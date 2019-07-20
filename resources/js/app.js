@@ -8,6 +8,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+// import VueRouter from 'vue-router'
+// Vue.use(VueRouter);
 
 /**
  * The following block of code may be used to automatically register your
@@ -107,3 +109,14 @@ const app = new Vue({
         }
     }
 });
+
+let tl = new TimelineLite,
+    mySplitText = new SplitText("*.split-text", {
+        type: "words, lines, chars"})
+        chars = mySplitText.chars
+
+tl.staggerFrom(chars, 2, {opaity:0, y:0, ease: Power4.easeOut}, 0.09)
+window.onload = function() {
+		tl.restart();
+}
+

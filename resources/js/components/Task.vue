@@ -4,6 +4,7 @@
       @click="$emit('delete', task)"
     >
       {{task.task}}
+       <slot>default</slot> 
     </liv>
   </ul>
 </template>

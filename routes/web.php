@@ -11,9 +11,9 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('pages/feed');
+});
 /*
 Route::prefix('profil')->group(function(){
     Route::get('/Admin','WelcomeCOntroller@Admin');

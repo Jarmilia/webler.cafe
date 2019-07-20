@@ -27,16 +27,21 @@
   <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-  <div id="app">
+  <div id="app" class="app-container">
     <header>
+      <div class="dark-backg margin0-10">
+        @include('inc.navigation')
+      </div>
       @yield('header')
     </header>
     <main class="py-4">
-      @include('inc.navigation')
+      <div class="webTalks">     
+        <h1 class="space-around webtalks-H1"><span class="computer-font">web-talks</span><span class="block CutiveMono fontSize1-3rem">in</span><span class="RugeBoogie">online-café</span></h1>
+      </div>
       <div class="container">
 
         @include('inc.messages')
-        <div class="space-between">
+        <div class="#">
           @include('inc.sidebar')
           @yield('content')
         </div>
@@ -49,7 +54,6 @@
         CKEDITOR.replace( 'article-ckeditor' );
     </script> --}}
   </div>
-
      {{-- <div class="wrapper">
             <header>
                 @yield('header')

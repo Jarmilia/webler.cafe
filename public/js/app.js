@@ -1806,6 +1806,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['task']
 });
@@ -1822,6 +1823,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Task_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Task.vue */ "./resources/js/components/Task.vue");
+//
 //
 //
 //
@@ -20094,7 +20096,11 @@ var render = function() {
             }
           }
         },
-        [_vm._v("\n    " + _vm._s(_vm.task.task) + "\n  ")]
+        [
+          _vm._v("\n    " + _vm._s(_vm.task.task) + "\n     "),
+          _vm._t("default", [_vm._v("default")])
+        ],
+        2
       )
     ],
     1
@@ -20125,11 +20131,11 @@ var render = function() {
   return _c(
     "ul",
     _vm._l(_vm.tasks, function(task) {
-      return _c("task", {
-        key: task.id,
-        attrs: { task: task },
-        on: { delete: _vm.remove }
-      })
+      return _c(
+        "task",
+        { key: task.id, attrs: { task: task }, on: { delete: _vm.remove } },
+        [_vm._v(" overwrite\n  ")]
+      )
     }),
     1
   )
@@ -32258,7 +32264,9 @@ module.exports = g;
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js"); // import VueRouter from 'vue-router'
+// Vue.use(VueRouter);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -32358,6 +32366,20 @@ var app = new Vue({
     }
   }
 });
+var tl = new TimelineLite(),
+    mySplitText = new SplitText("*.split-text", {
+  type: "words, lines, chars"
+});
+chars = mySplitText.chars;
+tl.staggerFrom(chars, 2, {
+  opaity: 0,
+  y: 0,
+  ease: Power4.easeOut
+}, 0.09);
+
+window.onload = function () {
+  tl.restart();
+};
 
 /***/ }),
 
