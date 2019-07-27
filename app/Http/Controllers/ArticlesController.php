@@ -36,7 +36,7 @@ class ArticlesController extends Controller
         $articles = Article::orderBy('created_at', 'desc')->get();
 
         //paginate:
-        $articles = Article::orderBy('created_at', 'desc')->paginate(12);
+        $articles = Article::orderBy('created_at', 'desc')->paginate(8);
 
         return view ('articles.index')->with('articles', $articles);
     }

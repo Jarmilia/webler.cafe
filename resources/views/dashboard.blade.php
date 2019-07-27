@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row justify-content-center no-bord-rad">
     <div class="col-md-12">
-      <div class="card text-creme dark-backg createArt">
+      <div class="card text-creme dark-backg artContent">
         <div class="card-header text-bigger text-gold dark-backg center">Dashboard</div>
           @if (session('status'))
             <div class="alert alert-success" role="alert">

@@ -24,7 +24,7 @@
 <body>
   <div id="app" class="app-container">
     <header>
-      <div class="dark-backg padding0-10">
+      <div class="dark-backg padding0-10 fixed width100 navi">
         @include('inc.navigation')
       </div>
       @yield('header')

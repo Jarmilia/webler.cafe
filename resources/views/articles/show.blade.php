@@ -2,17 +2,29 @@
 
 @section('content')
     {{-- <div class="space-between margin1-3"> --}}
-    <div  class="margin-0-auto dark-backg createArt">
+    <div  class=" dark-backg artContent">
       <div id="imageDivId" v-if="image">
         <img class="image-show" src="{{ asset('storage/cover_images') }}/{{ $article->cover_image }}">
       </div>
         <br>
         <h1 class="margin-0-auto text-gold RobotoThin">{{$article->title}}</h1>
         <br>
-        <small class="#" > Erstellt am {{$article->created_at}}  von {{$article->user->name}}</small>
+        <span class="small" > Erstellt am {{$article->created_at}} von {{$article->user->name}}</span>
       <br>
+      <div class="margin2-0 text-gold" >
+        <p> {!! $article->hashtags !!} </p>
+      </div>
+      <div class="margin2-0" >
+        <p class="summary"> {!! $article->summary !!} </p>
+      </div>
       <div class="margin2-0" >
           <p> {!! $article->content !!} </p>
+      </div>
+      <div class="margin2-0" >
+        <p> {!! $article->subtitle !!} </p>
+      </div>
+      <div class="margin2-0" >
+          <p> {!! $article->contentContinue !!} </p>
       </div>
     </div>
     @if(!Auth::guest())

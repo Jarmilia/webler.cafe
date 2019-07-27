@@ -10777,6 +10777,10 @@ ul {
   color: #d5a269;
 }
 
+.text-left {
+  text-align: left;
+}
+
 .bold {
   font-weight: 500;
 }
@@ -10860,6 +10864,10 @@ ul {
   position: relative;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .pointer:hover {
   cursor: pointer;
 }
@@ -10901,24 +10909,6 @@ input:focus,
   padding: 0.5rem;
 }
 
-/****Conrete Styles****/
-
-.upload {
-  padding: 0.5rem;
-  border-radius: 0.1rem;
-}
-
-.radio-label {
-  width: 35%;
-}
-
-.cinema img {
-  width: 100%;
-  height: 100vh;
-  -webkit-filter: brightness(0.2) sepia(1) blur(2px);
-          filter: brightness(0.2) sepia(1) blur(2px);
-}
-
 .underline-effect:after {
   content: "";
   display: block;
@@ -10931,6 +10921,41 @@ input:focus,
 .underline-effect:hover:after {
   width: 100%;
   transition: width 0.3s ease-in;
+}
+
+/****Conrete Styles****/
+
+.errors {
+  border: 4px solid #862a37;
+}
+
+.upload {
+  padding: 0.5rem;
+  border-radius: 0.1rem;
+}
+
+.radio-label {
+  width: 35%;
+}
+
+.cinema img {
+  position: fixed;
+  z-index: -100;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  margin-top: 7rem;
+  -webkit-filter: brightness(0.2) sepia(1) blur(2px);
+          filter: brightness(0.2) sepia(1) blur(2px);
+}
+
+.welcome {
+  height: 95vh;
+}
+
+.navi {
+  z-index: 100;
 }
 
 .searchbar {
@@ -10972,11 +10997,43 @@ input:focus,
   margin-top: -3px;
 }
 
-.createArt {
+.summary {
+  line-height: 1.55rem;
+  font-style: italic;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 0.5rem;
+}
+
+.artContent {
   background: #110f0a;
   padding: 1rem 5rem 2rem;
   margin: 0 auto;
-  width: 80vw;
+  padding-top: 8rem;
+}
+
+.navi-dropdown {
+  position: absolute;
+  display: none;
+}
+
+#navbarDropdown {
+  white-space: nowrap;
+}
+
+#navbarDropdown:after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0.255em;
+  content: "";
+  border-top: 0.3em solid;
+  border-right: 0.3em solid transparent;
+  border-bottom: 0;
+  border-left: 0.3em solid transparent;
+}
+
+.name-li:hover .navi-dropdown {
+  display: block;
 }
 
 .search-form .form-control {
@@ -11134,13 +11191,13 @@ hr {
   margin: 4px 0;
 }
 
-.max-article-height {
-  max-height: 4rem;
-  overflow: hidden;
-}
-
 p {
-  text-align: justify;
+  line-height: calc(1.5em + .2vw);
+  word-break: break-word;
+  margin: calc(1em + .5vw) 0;
+  font-size: calc(18px + .25vw);
+  -webkit-font-feature-settings: "onum" 1;
+          font-feature-settings: "onum" 1;
 }
 
 /***********************************************************************************

@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
 @section('content')
-<div class="dark-backg createArt">
+<div class="dark-backg artContent">
     <h1 class="text-gold RobotoThin">Aktuelle Artikel</h1>
     @if(count($articles)>0)
       @foreach($articles as $article)
@@ -14,8 +14,8 @@
               <h3><a class="text-gold hover-gold " href="{{ url('articles')}}/{{$article->id}} ">{{$article->title}}</a></h3>
               <small>Erstellt am {{$article->created_at}} von {{$article->user->username}}</small>
               <hr>
-              <div class="max-article-height">
-                <p> {!! $article->content !!}</p>
+              <div>
+                <p> {!! $article->summary !!}</p>
               </div>
               <span class="small"><a class="text-gold block hover-gold padding-top0-5" href="{{ url('articles')}}/{{$article->id}}">weiter lesen..</a></span>
             </div>

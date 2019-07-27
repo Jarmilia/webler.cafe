@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
 @section('content')
-<div class="createArt">
+<div class="artContent">
   <h1 class="text-gold margin3-4 RobotoThin">Editiere deinen Artikel</h1>
   {!! Form::open(['action'=> ['ArticlesController@update', $article->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
   <div class="form-group">

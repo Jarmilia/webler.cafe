@@ -1,7 +1,7 @@
 @extends ('layouts.app')
 
 @section('content')
-  <div class="createArt">
+  <div class="artContent">
     <h1 class="text-gold margin3-4 RobotoThin">Schreibe einen neuen Artikel</h1>
     {{-- <p>{{dd(auth()->user()->id)}}</p> --}}
     {!! Form::open(['action'=> 'ArticlesController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}

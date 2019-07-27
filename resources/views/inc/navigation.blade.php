@@ -1,7 +1,4 @@
 <nav class="navbar navbar-expand-lg">
-  {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> --}}
   <div>
     <a class="navbar-brand" href="{{ url('/') }}"><img class="logo block" src="{{ asset('assets/pictures/logo-webler.png') }}" alt="Logo von dem webler.cafe"></a>
   </div>
@@ -46,16 +43,16 @@
             @endif
           @else
         </div>
-        <li class="dark-backg text-creme absolute">
+        <li class="dark-backg text-creme name-li">
         {{-- TODO: --}}
-          <a id="navbarDropdown" class="nav-link dropdown-toggle hover-gold Sofia-Pro" href="{{ url('users/profile') }}"href="users/profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+          <a id="navbarDropdown" class="nav-link  hover-gold Sofia-Pro" href="{{ url('users/profile') }}"href="users/profile" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::user()->username }} <span class="caret"></span>
           </a>
         {{-- End TODO --}}
-          <div class="dark-backg text-creme relative nav-div" aria-labelledby="navbarDropdown">
-            <a class="nav-link hover-gold Sofia-Pro" href="{{ url('articles/create') }}" >Artikel schreiben</a>
+          <div class="dark-backg text-creme navi-dropdown" aria-labelledby="navbarDropdown">
+            <a class="nav-link hover-gold Sofia-Pro text-left" href="{{ url('articles/create') }}" >Artikel schreiben</a>
             {{-- <a class="nav-link hover-gold Sofia-Pro" href="users/profile">Artikel schreiben</a> --}}
-            <a class="nav-link hover-gold Sofia-Pro" href="{{ route('logout') }}"
+            <a class="nav-link hover-gold Sofia-Pro text-left" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                 {{ __('Ausloggen') }}
