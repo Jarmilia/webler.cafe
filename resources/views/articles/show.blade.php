@@ -2,15 +2,14 @@
 
 @section('content')
     {{-- <div class="space-between margin1-3"> --}}
-    <div  class="margin-0-auto">
+    <div  class="margin-0-auto dark-backg createArt">
       <div id="imageDivId" v-if="image">
-        <img class="image-show" src="../storage/storage/cover_images/{{$article->cover_image}}">
+        <img class="image-show" src="{{ asset('storage/cover_images') }}/{{ $article->cover_image }}">
       </div>
         <br>
-        <h1 class="margin-0-auto">{{$article->title}}</h1>
+        <h1 class="margin-0-auto text-gold RobotoThin">{{$article->title}}</h1>
         <br>
         <small class="#" > Erstellt am {{$article->created_at}}  von {{$article->user->name}}</small>
-      {{-- </div> --}}
       <br>
       <div class="margin2-0" >
           <p> {!! $article->content !!} </p>
@@ -26,7 +25,7 @@
       @endif
     <br>
     @endif
-    <a href="{{ url()->previous() }}" class="btn btn-light">Zurück zur Artikelüberischt</a>
+    <a href="{{ url('/articles') }}" class="btn btn-light margin-top1">Zurück zur Artikelüberischt</a>
 
 @endsection
 <script type="text/javascript">

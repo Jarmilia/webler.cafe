@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/article/search', 'ArticleController@search');
 // Route::prefix('auth')->group(function () {
 
 //     Route::post('login', 'AuthController@login');
@@ -49,38 +50,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 //     Route::delete('/{article}', 'ArticlesController@delete')->name('articles.delete');
 
 // });
-/*
-*
-*Tags needed?
-*
 
-Route::prefix('tags')->middleware('auth')->group(function () {
-    Route::get('/suggest', 'TagController@suggest')->name('tags.suggest');
-
-    Route::get('/{tag}/articles', 'TagController@listArticles')->name('tags.articles.list');
-});
-*/
-
-/*
- * The prefix method adds a prefix to all routes inside this group.
- * So routes will be accessible by e.g. "/comments/10/done".
- */
-// Route::prefix('comments')->middleware('auth:api')->group(function () {
-//     /*
-//      * The "name" method gives this route a unique name. If we use this name
-//      * throughout our api we can change the url that belongs to it easily later on.
-//      */
-//     Route::get('/', 'CommentsController@show')->name('comments.show');
-
-//     Route::post('/', 'CommentsController@add')->name('comments.add');
-
-//     /*
-//      * The {comment} is a route parameter. In the Controller it is hooked to
-//      * an object of the Task model with the same name. So if we call a URL
-//      * that puts a valid comment ID here it will automatically load this comment
-//      * from the database and pass it to our controller method.
-//      */
-//     Route::put('/{comment}', 'CommentsController@update')->name('comments.update');
-
-//     Route::delete('/{comment}', 'CommentsController@delete')->name('comments.delete');
-// });
