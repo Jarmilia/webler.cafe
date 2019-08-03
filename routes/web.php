@@ -3,8 +3,9 @@
 Route::view('/','index');
 Auth::routes();
 
-Route::resource('articles', 'ArticlesController');
 Route::get('/dashboard', 'DashboardController@index');
+Route::get('/articles/search', 'ArticlesController@search');
+Route::resource('articles', 'ArticlesController');
 /*
 Route::prefix('profil')->group(function(){
     Route::get('/Admin','WelcomeCOntroller@Admin');

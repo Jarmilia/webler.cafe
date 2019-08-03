@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center margin-top2">
+    <div class="row justify-content-center artContent">
         <div class="col-md-8">
-            <div class="card border-gold">
+            <div class="card noborder margin-top2">
                 <div class="card-header text-bigger text-gold dark-backg center">{{ __('Logge dich in dein Konto ein') }}</div>
 
                 <div class="card-body dark-backg text-creme">
@@ -12,7 +12,7 @@
                         @csrf
 
                         <div class="form-group row dark-backg text-creme">
-                            <label for="email" class="col-md-4 col-form-label text-md-right dark-backg text-creme">{{ __('E-Mail Adresse') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right dark-backg text-creme text1-2rem">{{ __('E-Mail Adresse') }}</label>
 
                             <div class="col-md-6 dark-backg text-creme">
                                 <input id="email" type="email" class="form-control dark-backg text-creme @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="form-group row dark-backg text-creme">
-                            <label for="password" class="col-md-4 col-form-label text-md-right dark-backg text-creme">{{ __('Passwort') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right dark-backg text-creme text1-2rem">{{ __('Passwort') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control dark-backg text-creme @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
@@ -42,9 +42,9 @@
                         <div class="form-group row dark-backg text-creme">
                             <div class="col-md-6 offset-md-4 dark-backg text-creme">
                                 <div class="form-check dark-backg text-creme">
-                                    <input class="form-check-input dark-backg text-creme" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input class="form-check-input dark-backg text-creme login-checkbox" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
-                                    <label class="form-check-label dark-backg text-creme" for="remember">
+                                    <label class="form-check-label dark-backg text-creme text1-2rem" for="remember">
                                         {{ __('Daten merken') }}
                                     </label>
                                 </div>

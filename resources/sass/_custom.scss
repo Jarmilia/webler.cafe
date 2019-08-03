@@ -13,27 +13,37 @@
 	box-sizing: border-box;
 }
 html, body{
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 html{
-  font-size:18px;
+  font-size: $bf-size;
 }
 body{
-	font-family: 'Roboto', Arial, sans-serif;
-  // background-color: #110f0a; //#3d321f;
-  // background-color:#201c16; // rgba(37,37,37);
-  background: rgb(32,28,22);
-	font-weight: 200;
-	color:#CBBBB8;
+	font-family: $f-roboto;
+  background: $brown;
+	font-weight: $bf-weight;
+	color: $creme;
 }
 a{
 	text-decoration: none;
-	color: #CBBBB8;
+	color: $creme;
 }
 ul{
   list-style-type: none;
   margin-bottom: 0 !important;
+}
+hr{
+  background: $creme;
+  width: 35%;
+  margin: 4px 0;
+}
+p{
+  line-height: $p-line-height;
+  word-break: break-word;
+  margin: $p-margin;
+  font-size: $p-font-size;
+  font-feature-settings: 'onum' 1;
 }
 .app-container{
 	width: 100%;
@@ -45,54 +55,38 @@ ul{
 	border-radius: 0.2rem;
 }
 /* FONT STYLES */
-.RobotoLight{
-  font-family: 'Roboto Light', Arial, sans-serif;
-  font-weight: 400;
-}
 .RobotoThin{
-  font-family: 'Roboto Thin', Arial, sans-serif;
+  font-family: $f-roboto-thin;
   font-weight: 300;
 }
-.RugeBoogie{
-  font-family: 'Ruge Boogie', Arial, sans-serif;
-}
 .computer-font{
-  font-family: 'VT323', Arial, sans-serif;
-}
-.CutiveMono{
-  font-family: 'Cutive Mono', Arial, sans-serif;
+  font-family: $f-computer;
 }
 .Sofia-Pro{
-  font-family: 'Sofia Pro', Arial, sans-serif;
+  font-family: $f-sofia;
   letter-spacing: 0.05rem;
   font-weight: 400;
   font-size: 1.15rem;
   text-align: center;
   text-transform: uppercase;
 }
-.fontSize1-2rem{
+.text1-2rem{
   font-size: 1.2rem;
 }
-.fontSize1-3rem{
+.text1-3rem{
   font-size: 1.3rem;
 }
-.fontSize1-5rem{
-	font-size: 1.5rem;
-}
-.fontSize1-8rem{
+.text1-8rem{
 	font-size: 1.8rem;
 }
-.font-size-2rem{
-  font-size: 2rem;
+.text1-5rem{
+  font-size: 1.5rem;
 }
 .text-creme{
-  color: #CBBBB8;
-}
-.text-dark{
-  color: #110f0a;
+  color: $creme;
 }
 .text-gold{
-  color: #d5a269;
+  color: $gold;
 }
 .text-left{
   text-align: left;
@@ -100,36 +94,100 @@ ul{
 .bold{
   font-weight: 500;
 }
-.light{
-  font-weight: 300;
-}
-.small{
-  font-size: 0.8rem;
-}
 .text-bigger{
   font-size: 1.5rem;
   font-weight: bold;
 }
-.text1-2rem{
-  font-size: 1.2rem;
-  padding-bottom: 1rem;
+/*******************************************************************************************
+                                GENERAL STYLES
+********************************************************************************************/
+.width100{
+  width: 100%;
 }
-.text1-5rem{
-  font-size: 1.5rem;
+.width50{
+  width: 50%;
 }
-/**** General Styles ****/
 .block{
 	display: block;
 }
 .inline-block{
   display: inline-block;
 }
-.width100{
-	width: 100%;
+.nodisplay{
+  display: none;
 }
-.width50{
-	width: 50%;
+.noborder{
+  border: none;
 }
+.relative{
+  position: relative;
+}
+.fixed{
+  position: fixed;
+}
+.pointer:hover{
+  cursor: pointer;
+}
+.dark-backg{
+  background-color: $dark;
+}
+.padding0-10{
+  padding: 0 10%;
+}
+.padding-top0{
+  padding-top: 0 !important;
+}
+.padding-top2{
+  padding-top: 2rem;
+}
+.margin3-4{
+  margin: 3rem 0 4rem 0;
+}
+.margin2-0{
+  margin: 2rem 2rem 2rem 0;
+}
+.margin-0-auto{
+  margin: 0 auto;
+}
+.margin-top0-5{
+  margin-top: 0.5rem;
+}
+.margin-top1{
+  margin-top: 1rem;
+}
+.margin-top2{
+  margin-top: 2rem;
+}
+.margin-top4{
+  margin-top: 4rem;
+}
+.margin-left1{
+  margin-left: 1rem;
+}
+.no-bord-rad{
+  border-radius: 0;
+}
+input:focus, .form-control:focus{
+  background: $creme;
+  color: $dark;
+  border-color: unset;
+  outline: 0;
+  box-shadow: none;
+  border-radius: 0.2rem;
+}
+.underline-effect:after{
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: $creme;
+  transition: width 0.3s;
+}
+.underline-effect:hover:after{
+  width:100%;
+  transition: width 0.3s ease-in;
+}
+/**** Flexbox Styles ****/
 .row{
 	display: flex;
 	flex-direction: row;
@@ -158,30 +216,9 @@ ul{
   display: flex;
   justify-content: flex-start;
 }
-.relative{
-  position: relative;
-}
-.fixed{
-  position: fixed;
-}
-.pointer:hover{
-  cursor: pointer;
-}
-input:focus, .form-control:focus{
-  background: #CBBBB8;
-  color: #110f0a;
-  border-color: unset;
-  outline: 0;
-  box-shadow: none;
-  border-radius: 0.2rem;
-}
-.dark-backg{
-  background-color: #110f0a;//rgba(3,3,3)//;#191611;//#201c16;
-  // background-color: #252525;
-}
 /*Hover Styles*/
 .hover-gold:hover{
-  color: #d5a269;
+  color: $gold;
 }
 .hover-bold:hover{
   font-weight: bold;
@@ -190,26 +227,23 @@ input:focus, .form-control:focus{
   text-decoration: none;
 }
 .hover-border:hover, .border-gold{
-  border: 1px #CBBBB8 solid;
+  border: 1px $creme solid;
 }
 .hover-padding:hover{
   padding:0.5rem;
 }
-.underline-effect:after{
-  content: '';
-  display: block;
-  width: 0;
-  height: 2px;
-  background: #CBBBB8;
-  transition: width 0.3s;
+.a-p:hover{
+  text-decoration: none;
+  color: $creme;
 }
-.underline-effect:hover:after{
-  width:100%;
-  transition: width 0.3s ease-in;
+.small{
+  font-size: $f-size-base;
 }
-/****Conrete Styles****/
+/*******************************************************************************************
+                                LOCAL STYLES
+********************************************************************************************/
 .errors{
-  border: 4px solid #862a37;
+  border: 4px solid $bordo;
 }
 .upload{
   padding: 0.5rem;
@@ -234,36 +268,14 @@ input:focus, .form-control:focus{
 .navi{
   z-index: 100;
 }
-// .webTalks{
-//   width: 100%;
-// 	padding: 2rem;
-//   font-size: 2.2rem;
-//   position: absolute;
-//   top: 25vh;
-//   left:0;
-//   z-index: 10;
-// 	background:rgba(203, 187, 184, 0.1);
-// 	text-align: center;
-//   border-radius: 0.2rem;
-// }
-// .webtalks-H1{
-//   max-width: 24rem;
-//   margin: 0 auto;
-// }
-
-// .introduce{
-//     font-size: 1rem;
-//     line-height: 1.5rem;
-//     font-family: 'Roboto', Arial, sans-serif;
-// }
 .searchbar{
   height: 40px;
   margin-bottom: auto;
   margin-top: auto;
   padding: 6px 0 0 0;
-  color: #CBBBB8;
+  color: $creme;
   background-color: transparent;
-  border-bottom: 1px solid #ced4da;
+  border-bottom: 1px solid $creme;
   border-top: none;
   border-left: none;
   border-right: none;
@@ -272,38 +284,38 @@ input:focus, .form-control:focus{
 .search_input, .search_input:focus{
   padding: 0 0 0 2px;
   width: 10rem;
-  color: #CBBBB8;
+  color: $creme;
   outline: 0;
   background-color: transparent;
   border: 0;
-  line-height: 40px;
+  line-height: $lh-big;
   transition: width 0.4s linear;
 }
 .search_icon{
   height: 40px;
   width: 40PX;
-  color: #CBBBB8;
+  color: $creme;
   padding: 10px 10px 15px 10px;
   float: right;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #CBBBB8;
+  color: $creme;
   margin-top: -3px;
 }
 .summary{
-  line-height: 1.55rem;
+  line-height: $lh-middle;
   font-style: italic;
   padding-bottom: 1.5rem;
-  border-bottom: 1px solid #e5e5e5;
+  border-bottom: 1px solid $creme;
   margin-bottom: .5rem;
 }
 .artContent{
-  background: #110f0a;
+  min-height: 95vh;
+  background: $dark;
   padding: 1rem 5rem 2rem;
   margin: 0 auto;
   padding-top: 8rem;
-  // width: 80vw;
 }
 .navi-dropdown{
   position: absolute;
@@ -325,31 +337,10 @@ input:focus, .form-control:focus{
 .name-li:hover .navi-dropdown{
   display: block;
 }
-
-// .arrow-down{
-//   width: 1rem;
-//   position: absolute;
-//   z-index: 50;
-//   bottom: 1rem;
-//   left: 50%;
-//   transform: translateX(-50%);
-//   fill: #cbbbb8;
-//   animation:arrowDown 2s reverse infinite;
-//   -moz-animation:arrowDown 2s reverse infinite; /* Firefox */
-//   -webkit-animation:arrowDown 2s reverse infinite; /* Safari and Chrome */
-// }
-// @keyframes arrowDown{
-//   from {bottom: 1rem;}
-//   to{bottom:2rem;}
-// }
-// @-moz-keyframes arrowDown{
-//   from {bottom: 1rem;}
-//   to{bottom:2rem;}
-// }
-// @-webkit-keyframes arrowDown{
-//   from {bottom: 1rem;}
-//   to{bottom:2rem;}
-// }​
+.login-checkbox{
+  margin-top: 0.6rem;
+  margin-left: -1.25rem;
+}
 .search-form .form-control{
   background-color: transparent !important;
 }
@@ -358,20 +349,20 @@ input:focus, .form-control:focus{
   width: 100%;
   height: calc(1.6em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
-  font-size: 0.9rem;
+  font-size: $f-size-base;
   font-weight: 400;
-  line-height: 1.6;
-  color: #CBBBB8;
+  line-height: $lh-middle;
+  color: $creme;
   background-color: transparent;
   background-clip: padding-box;
-  border-bottom: 1px solid #CBBBB8;
+  border-bottom: 1px solid $creme;
   border-top: none;
   border-left: none;
   border-right: none;
   border-radius: 0;
 }
 .form-control-edit{
-  font-family: 'Roboto Thin', Arial, sans-serif;
+  font-family: $f-roboto-thin;
   font-weight: 300;
   font-size: 1.575rem;
 }
@@ -384,83 +375,9 @@ input:focus, .form-control:focus{
   transform: translate(-50%, -50%);
   text-align: center;
 }
-.register-input, .submitButton{
-  width: 100%;
-  padding: 1rem 0 0 0;
-  margin: 1rem 0;
-  font-size: 1rem;
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-bottom: solid 2px #474544;
-  border-radius: 0;
-  background: rgba(37,37,37);
-  color: #CBBBB8;
-}
-.submitButton{
-  margin-top: 1.5rem;
-  padding: 0.6rem 1.2rem;
-  border-bottom: none;
-  background:rgba(203, 187, 184, 0.1);
-  border-radius: 0.2rem;
-  font-weight: 300;
-}
 .register-form-radios{
   width: 10rem;
   padding: 0;
-}
-.main-nav{
-  margin: 2rem 0;
-}
-.main-nav-li{
-  margin: 1rem 2rem 1rem 0;
-  font-size: 1.2rem;
-  font-weight: 300;
-}
-.padding0{
-  padding: 0;
-}
-.padding0-10{
-  padding: 0 10%;
-}
-.padding-top-0{
-  padding-top: 0 !important;
-}
-.padding-top0-5{
-  padding-top: 0.5rem;
-}
-.padding-top1{
-  padding-top: 1rem;
-}
-.marginLeft_2rem{
-  margin-left: 2rem;
-}
-.margin3-4{
-  margin: 3rem 0 4rem 0;
-}
-.margin1-3{
-  margin: 1rem 0 3rem 0;
-}
-.margin2-0{
-  margin: 2rem 2rem 2rem 0;
-}
-.margin-right1{
-  margin-right: 1rem;
-}
-.margin-0-auto{
-  margin: 0 auto;
-}
-.margin-top1{
-  margin-top: 1rem;
-}
-.margin-top4{
-  margin-top: 4rem;
-}
-.margin-top2{
-  margin-top: 2rem;
-}
-.no-bord-rad{
-  border-radius: 0;
 }
 .image-show{
   max-height: 25rem;
@@ -470,27 +387,14 @@ input:focus, .form-control:focus{
 .image-index-div{
   margin: 3rem 0;
 }
-hr{
-  background: #fff;
-  width: 35%;
-  margin: 4px 0;
-}
-p{
-  // text-align: justify;
-  line-height: calc(1.5em + .2vw);
-  word-break: break-word;
-  margin: calc(1em + .5vw) 0;
-  font-size: calc(18px + .25vw);
-  font-feature-settings: 'onum' 1;
-}
 /***********************************************************************************
                                   FOOTER
 ***********************************************************************************/
 footer{
   width: 100%;
-  background-color: #110f0a;
+  background-color: $dark;
   padding: 2rem 10%;
-  color: #fff;
+  color: $creme;
 }
 .footer-hr{
   width: 100%;
@@ -504,26 +408,31 @@ footer{
 .footer_ida a, .footer_social a{
   padding: 0.5rem;
   margin: 0.6rem 0;
-  color: #fff;
+  color: $creme;
   font-size: 1.2rem;
   display: block;
 }
-@media only screen and (min-width: 568px){
-
+/*******************************************************************************************
+                                MEDIA-QUERY: px;
+********************************************************************************************/
+@media only screen and (min-width: em){
+  // Einloggen, registrieren rutschen in 2. Zeile
 }
-@media only screen and (min-width: 768px){
-  .FroBack{
-    width: 100%;
-  }
-.FroBack ul{
-  flex-direction: row;
-    justify-content: space-between;
-
-  }
-  .FroBack ul li{
-    margin: 0 1rem;
-  }
+/*******************************************************************************************
+                                MEDIA-QUERY: 1088px;
+********************************************************************************************/
+@media only screen and (min-width: 68em){
+// nur Feed eingeblendet
 }
-@media only screen and (min-width: 768px){
-
+/*******************************************************************************************
+                                MEDIA-QUERY: 1600px;
+********************************************************************************************/
+@media only screen and (min-width: 100em){
+// normale desktop Ansicht
+}
+/*******************************************************************************************
+                                MEDIA-QUERY: 1920px;
+********************************************************************************************/
+@media only screen and (min-width: 120em){
+// maximale desktop Ansicht
 }

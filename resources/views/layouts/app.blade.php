@@ -13,7 +13,6 @@
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Ruge+Boogie" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Cutive+Mono" rel="stylesheet">
@@ -29,7 +28,7 @@
       </div>
       @yield('header')
     </header>
-    <main class="py-4 padding-top-0">
+    <main class="padding-top0">
       <div class="container">
         @include('inc.messages')
         @yield('content')

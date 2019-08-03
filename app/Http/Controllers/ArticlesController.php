@@ -6,13 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Article;
 
-//if not using eloquent:
-use DB;
-
 class ArticlesController extends Controller
 {
 
-        /**
+     /**
      * Create a new controller instance.
      *
      * @return void
@@ -20,29 +17,24 @@ class ArticlesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
     }
 
     /**
-     * Display a listing of the resource.
+     * Display a listing of the articles.
      *
      * @return \Illuminate\Http\Response
      */
-
     public function index()
     {
-        //with eloquent:
-        $articles = Article::all();
+        //show all articles
         $articles = Article::orderBy('created_at', 'desc')->get();
-
-        //paginate:
-        $articles = Article::orderBy('created_at', 'desc')->paginate(8);
 
         return view ('articles.index')->with('articles', $articles);
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new article.
      *
      * @return \Illuminate\Http\Response
      */
@@ -53,7 +45,7 @@ class ArticlesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created article in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -63,7 +55,6 @@ class ArticlesController extends Controller
     {
        $this->validate($request, [
           'title' => 'required',
-          'hashtags' => 'required',
           'summary' => 'required',
           'content' => 'required',
           'cover_image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:1999'
@@ -79,7 +70,8 @@ class ArticlesController extends Controller
         //Filename to store
         $fileNameToStore = $filename.'_'.time().'.'.$extension;
         //UploadImage
-        $path = $request->file('cover_image')->storeAs('public/storage/cover_images', $fileNameToStore);
+        // $path = $request->file('cover_image')->storeAs('public/storage/cover_images', $fileNameToStore);
+        $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
       } else{
         $fileNameToStore = 'noimage.png';
       }
@@ -97,24 +89,18 @@ class ArticlesController extends Controller
       return redirect('/articles')->with('success', 'Du hast ein Artikel geschrieben, danke!');
     }
     /**
-     * Display the specified resource.
+     * Display the article.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-
     public function show($id)
     {
       $article = Article::find($id);
-
-      //CHeck for correct user
-      // if(auth()->user()->id !== $article->user_id){
-      //   return redirect('/articles')->with('error', 'Für diese Seite hast du keine Autorisierung. ');
-      // }
-      return view ('articles.show')->with('article', $article);
+      return view('articles.show')->with('article', $article);
     }
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the article.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -123,10 +109,11 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article = Article::find($id);
-        return view ('articles.edit')->with('article', $article);
+        return view('articles.edit')->with('article', $article);
     }
+
     /**
-     * Update the specified resource in storage.
+     * Update the article in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
@@ -137,6 +124,7 @@ class ArticlesController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
+            'hashtags' => 'required',
             'content' => 'required'
             ]);
              if($request->hasFile('cover_image')){
@@ -173,7 +161,7 @@ class ArticlesController extends Controller
             return redirect('/articles')->with('success', 'Artikel wurde editiert');
     }
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified article from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
@@ -181,35 +169,49 @@ class ArticlesController extends Controller
 
     public function destroy($id)
     {
-        $article = Article::find($id);
+      $article = Article::find($id);
 
-        //CHeck for correct user
-        if(auth()->user()->id !== $article->user_id){
-          return redirect('/articles')->with('error', 'Für diese Seite hast du keine Autorisierung. ');
-        }
-        if($article->cover_image != 'noimage.jpg'){
-            //delete Image
-            Storage::delete('public/storage/cover_images/'.$article->cover_image);
-        }
+      //Check for correct user
+      if(auth()->user()->id !== $article->user_id){
+        return redirect('/articles')->with('error', 'Für diese Seite hast du keine Autorisierung.');
+      }
+      if($article->cover_image != 'noimage.jpg'){
+          //delete Image
+          Storage::delete('public/storage/cover_images/'.$article->cover_image);
+      }
 
-        $article->delete();
-        return redirect('/articles')->with('success', 'Artikel wurde gelöscht');
+      $article->delete();
+      return redirect('/articles')->with('success', 'Artikel wurde gelöscht');
     }
-
+    
+    /**
+     * Remove the image from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     public function deleteImage($id)
     {
       $article = Article::find($id);
+      //Check for correct user
       if(auth()->user()->id !== $article->user_id){
-        return redirect('/articles')->with('error', 'Für diese Seite hast du keine Autorisierung. ');
+        return redirect('/articles')->with('error', 'Für diese Seite hast du keine Autorisierung.');
       }
       if($article->cover_image != 'noimage.jpg'){
         //delete Image
         Storage::delete('public/storage/cover_images/'.$article->cover_image);
       }
     }
-
-    public function serach(Request $request){
-      $search = $request->get('h');
-      return Article::where('name', 'like', '%' .$search. '%')->get();
+    
+    /**
+     * The search function.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request){
+      $search = $request->get('search');
+      $articles = Article::where('hashtags', 'like', '%'. $search. '%')->get();
+      return view ('articles.index')->with('articles', $articles);
     }
 }

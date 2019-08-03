@@ -1,20 +1,27 @@
-
 // Body
-$body-bg: #f8fafc;
-//$body-bg:  rgba(37,37,37);
+$bf-size: 16px;
+$bf-weight: 200;
+
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
-$font-size-base: 0.9rem;
-$line-height-base: 1.6;
+$f-roboto: 'Roboto', Arial, sans-serif;
+$f-roboto-thin: 'Roboto Thin', Arial, sans-serif;
+$f-computer: 'VT323', Arial, sans-serif;
+$f-sofia: 'Sofia Pro', Arial, sans-serif;
+$f-size-base: 0.9rem;
+
+//Paragraph:
+$p-line-height: calc(1.5em + .2vw);
+$p-font-size: calc(18px + .25vw);
+$p-margin: calc(1em + .5vw) 0 0.5em 0;
+
+//Line-height:
+$lh-middle: 25px;
+$lh-big: 40px;
 
 // Colors
-$blue: #3490dc;
-$indigo: #6574cd;
-$purple: #9561e2;
-$pink: #f66D9b;
-$red: #e3342f;
-$orange: #f6993f;
-$yellow: #ffed4a;
-$green: #38c172;
-$teal: #4dc0b5;
-$cyan: #6cb2eb;
+$white: #fff;
+$creme: #CBBBB8;
+$dark: #110f0a;
+$gold: #d5a269;
+$bordo: #862a37;
+$brown: #474544;

@@ -39,4 +39,3 @@ tl.staggerFrom(chars, 2, {opaity:0, y:0, ease: Power4.easeOut}, 0.09)
 window.onload = function() {
 		tl.restart();
 }
-
