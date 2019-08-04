@@ -23,19 +23,51 @@ window.Vue = require('vue');
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('back-to-top', require('./components/BackToTop.vue').default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
-let tl = new TimelineLite,
-    mySplitText = new SplitText("*.split-text", {
-        type: "words, lines, chars"})
-        chars = mySplitText.chars
-
-tl.staggerFrom(chars, 2, {opaity:0, y:0, ease: Power4.easeOut}, 0.09)
-window.onload = function() {
-		tl.restart();
-}
+ 
+// const app = new Vue({
+//         el: '#app',
+//         created() {
+//             axios.get('/api/tasks').then((tasks) => {
+//                 this.todos = tasks.data.data;
+//             }).catch(() => {
+//                 alert('Something went wrong!');
+//             });
+//         },
+//         data() {
+//             return {
+//                 todos: [],
+//                 newTodo: '',
+//                 errors: {}
+//             }
+//         },
+//         methods: {
+//             removeTodo(id) {
+//                 axios.delete('/api/tasks/' + id).then(() => {
+//                     this.todos = this.todos.filter((todo) => {
+//                         return todo.id !== id;
+//                     });
+//                 }).catch(() => {
+//                     alert('Something went wrong');
+//                 });
+//             },
+//             addTodo() {
+//                 this.errors = {}
+    
+//                 axios.post('/api/tasks', {
+//                     task : this.newTodo,
+//                 }).then((task) => {
+//                     this.todos.push(task.data);
+//                     this.newTodo = '';
+//                 }).catch((error) => {
+//                     if (error.response.status === 422) {
+//                         this.errors = error.response.data.errors;
+//                     } else {
+//                         alert('Something went wrong');
+//                     }
+//                 });
+//             }
+//         }
+//     });
+    

@@ -21,7 +21,7 @@ html{
 }
 body{
 	font-family: $f-roboto;
-  background: $brown;
+  background: $dark;
 	font-weight: $bf-weight;
 	color: $creme;
 }
@@ -48,7 +48,10 @@ p{
 .app-container{
 	width: 100%;
 	height: 100%;
-	margin: 0 auto;
+  margin: 0 auto;
+  @media only screen and (min-width: 120em){    
+    max-width: 1920px;
+  }
 }
 .logo{
 	height: 5rem;
@@ -103,9 +106,15 @@ p{
 ********************************************************************************************/
 .width100{
   width: 100%;
+  @media only screen and (min-width: 120em){    
+    max-width: 1920px;
+  }
 }
 .width50{
   width: 50%;
+  @media only screen and (min-width: 120em){    
+    max-width: 960px;
+  }
 }
 .block{
 	display: block;
@@ -131,8 +140,8 @@ p{
 .dark-backg{
   background-color: $dark;
 }
-.padding0-10{
-  padding: 0 10%;
+.padding0-5{
+  padding: 0 5%;
 }
 .padding-top0{
   padding-top: 0 !important;
@@ -245,6 +254,54 @@ input:focus, .form-control:focus{
 .errors{
   border: 4px solid $bordo;
 }
+#btt{
+  right: 40px;
+  bottom: 40px;
+  position: fixed;
+  border: none;
+}
+#arrow{
+  width: 2.5rem;
+}
+.webler-nav{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  @media only screen and (min-width: 80em){    
+    flex-direction: row;
+  } 
+}
+.webler-nav-1st-div{
+  display: flex;
+  justify-content: space-around;
+}
+.webler-nav-2nd-div{
+  display: flex;
+  flex-direction: column;
+  @media only screen and (min-width: 55em){    
+    width: 100%;
+    height: 96.5px;
+    flex-direction: row;
+  } 
+  @media only screen and (min-width: 120em){    
+    max-width: 1920px;
+  }
+}
+.webler-nav-2nd-div>div{
+  margin-top: 1rem;
+}
+.tablet-li{
+  display: none;
+  @media only screen and (min-width: 62em){    
+    display: block;
+  } 
+}
+.search-container{
+  @media only screen and (min-width: 62em){    
+    margin-right: auto;
+    margin-left: auto;
+  } 
+}
 .upload{
   padding: 0.5rem;
   border-radius: 0.1rem;
@@ -258,17 +315,29 @@ input:focus, .form-control:focus{
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
-  margin-top: 7rem;
+  height: auto;
+  margin-top: 11rem;
+  overflow: hidden;
   filter: brightness(0.2) sepia(1) blur(2px);
+  @media only screen and (min-width: 64em){    
+    height: 100vh;
+    margin-top: 6rem;
+  } 
+  @media only screen and (min-width: 120em){    
+    max-width: 1920px;
+  } 
 }
 .welcome{
-	height: 95vh;
+  height: 95vh;
+  @media only screen and (min-width: 64em){    
+    height: 95vh;
+  } 
 }
 .navi{
   z-index: 100;
 }
 .searchbar{
+  width: 15rem;
   height: 40px;
   margin-bottom: auto;
   margin-top: auto;
@@ -283,7 +352,7 @@ input:focus, .form-control:focus{
 }
 .search_input, .search_input:focus{
   padding: 0 0 0 2px;
-  width: 10rem;
+  width: 12rem;
   color: $creme;
   outline: 0;
   background-color: transparent;
@@ -313,9 +382,8 @@ input:focus, .form-control:focus{
 .artContent{
   min-height: 95vh;
   background: $dark;
-  padding: 1rem 5rem 2rem;
+  padding: 16rem 0 2rem;
   margin: 0 auto;
-  padding-top: 8rem;
 }
 .navi-dropdown{
   position: absolute;
@@ -366,14 +434,20 @@ input:focus, .form-control:focus{
   font-weight: 300;
   font-size: 1.575rem;
 }
-.h2-middle{
+.h1-middle{
   width: 45%;
   position: absolute;
   z-index: 50;
-  top: 57%;
+  top: 28rem;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  @media only screen and (min-width: 64em){    
+    top: 57%;
+  }
+  @media only screen and (min-width: 120em){    
+    max-width: 864px;
+  }  
 }
 .register-form-radios{
   width: 10rem;
@@ -395,15 +469,29 @@ footer{
   background-color: $dark;
   padding: 2rem 10%;
   color: $creme;
+  @media only screen and (min-width: 120em){    
+    max-width: 1920px;
+  }  
 }
 .footer-hr{
   width: 100%;
+  @media only screen and (min-width: 120em){    
+    max-width: 1920px;
+  }  
 }
 .footer_ida{
- width: 70%;
- margin: 0 auto;
- display: flex;
- justify-content: space-around;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media only screen and (min-width: 40em){    
+    flex-direction: row;
+    justify-content: space-around;
+  }  
+  @media only screen and (min-width: 120em){    
+    max-width: 1344px;
+  }  
 }
 .footer_ida a, .footer_social a{
   padding: 0.5rem;
@@ -411,28 +499,4 @@ footer{
   color: $creme;
   font-size: 1.2rem;
   display: block;
-}
-/*******************************************************************************************
-                                MEDIA-QUERY: px;
-********************************************************************************************/
-@media only screen and (min-width: em){
-  // Einloggen, registrieren rutschen in 2. Zeile
-}
-/*******************************************************************************************
-                                MEDIA-QUERY: 1088px;
-********************************************************************************************/
-@media only screen and (min-width: 68em){
-// nur Feed eingeblendet
-}
-/*******************************************************************************************
-                                MEDIA-QUERY: 1600px;
-********************************************************************************************/
-@media only screen and (min-width: 100em){
-// normale desktop Ansicht
-}
-/*******************************************************************************************
-                                MEDIA-QUERY: 1920px;
-********************************************************************************************/
-@media only screen and (min-width: 120em){
-// maximale desktop Ansicht
 }
