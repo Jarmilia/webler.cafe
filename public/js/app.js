@@ -32135,12 +32135,7 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 new Vue({
-  el: '#app' // methods: {
-  //   scrollTo(selector){
-  //     document.querySelector(selector).scrollIntoView({ behavior: 'smooth'});
-  //   }
-  // }
-
+  el: '#app'
 });
 
 /***/ }),

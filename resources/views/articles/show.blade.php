@@ -4,8 +4,8 @@
 {{-- Show the Article --}}
     <div class="dark-backg artContent">
       <div id="imageDivId">
-        <img class="image-show" src="{{ asset('storage/cover_images') }}/{{ $article->cover_image }}">
-      </div>        
+        <img class="image-show" src="{{ asset('storage/cover_images') }}/{{ $article->cover_image }}" alt="Ein Bild zum Artikel: {{$article->title}}, in Webler.cafe">
+      </div>
         <h1 class="margin-0-auto margin3-4 text-gold RobotoThin">{{$article->title}}</h1>
       <div class="margin2-0 text-gold" >
         <p> {!! $article->hashtags !!} </p>

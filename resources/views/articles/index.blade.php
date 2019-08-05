@@ -10,7 +10,7 @@
           <div class="row image-index-div">
         {{-- Cover Image --}}
             <div class="col-md-4 col-sm-4">
-              <a href="{{ url('articles')}}/{{$article->id}} "><img class="width100" src="{{ asset('storage/cover_images')}}/{{ $article->cover_image }}"></a>
+              <a href="{{ url('articles')}}/{{$article->id}} "><img class="width100" src="{{ asset('storage/cover_images')}}/{{ $article->cover_image }}" alt="Ein Bild zum Artikel: {{$article->title}}, in Webler.cafe"></a>
             </div>
         {{-- Article --}}
             <div class="col-md-8 col-sm-8">

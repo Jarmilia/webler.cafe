@@ -40,7 +40,7 @@ p{
 	width: 100%;
 	height: 100%;
   margin: 0 auto;
-  @media only screen and (min-width: 120em){    
+  @media only screen and (min-width: 120em){
     max-width: 1920px;
   }
 }
@@ -70,11 +70,11 @@ p{
 .text1-3rem{
   font-size: 1.3rem;
 }
-.text1-8rem{
-	font-size: 1.8rem;
-}
 .text1-5rem{
   font-size: 1.5rem;
+}
+.text1-8rem{
+	font-size: 1.8rem;
 }
 .text-creme{
   color: $creme;
@@ -97,13 +97,13 @@ p{
 ********************************************************************************************/
 .width100{
   width: 100%;
-  @media only screen and (min-width: 120em){    
+  @media only screen and (min-width: 120em){
     max-width: 1920px;
   }
 }
 .width50{
   width: 50%;
-  @media only screen and (min-width: 120em){    
+  @media only screen and (min-width: 120em){
     max-width: 960px;
   }
 }
@@ -258,9 +258,9 @@ input:focus, .form-control:focus{
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  @media only screen and (min-width: 80em){    
+  @media only screen and (min-width: 80em){
     flex-direction: row;
-  } 
+  }
 }
 .webler-nav-1st-div{
   display: flex;
@@ -269,12 +269,12 @@ input:focus, .form-control:focus{
 .webler-nav-2nd-div{
   display: flex;
   flex-direction: column;
-  @media only screen and (min-width: 55em){    
+  @media only screen and (min-width: 55em){
     width: 100%;
     height: 96.5px;
     flex-direction: row;
-  } 
-  @media only screen and (min-width: 120em){    
+  }
+  @media only screen and (min-width: 120em){
     max-width: 1920px;
   }
 }
@@ -283,15 +283,15 @@ input:focus, .form-control:focus{
 }
 .tablet-li{
   display: none;
-  @media only screen and (min-width: 62em){    
+  @media only screen and (min-width: 62em){
     display: block;
-  } 
+  }
 }
 .search-container{
-  @media only screen and (min-width: 62em){    
+  @media only screen and (min-width: 62em){
     margin-right: auto;
     margin-left: auto;
-  } 
+  }
 }
 .upload{
   padding: 0.5rem;
@@ -310,19 +310,19 @@ input:focus, .form-control:focus{
   margin-top: 11rem;
   overflow: hidden;
   filter: brightness(0.2) sepia(1) blur(2px);
-  @media only screen and (min-width: 64em){    
+  @media only screen and (min-width: 64em){
     height: 100vh;
     margin-top: 6rem;
-  } 
-  @media only screen and (min-width: 120em){    
+  }
+  @media only screen and (min-width: 120em){
     max-width: 1920px;
-  } 
+  }
 }
 .welcome{
   height: 95vh;
-  @media only screen and (min-width: 64em){    
+  @media only screen and (min-width: 64em){
     height: 95vh;
-  } 
+  }
 }
 .navi{
   z-index: 100;
@@ -354,7 +354,6 @@ input:focus, .form-control:focus{
 .search_icon{
   height: 40px;
   width: 40PX;
-  color: $creme;
   padding: 10px 10px 15px 10px;
   float: right;
   display: flex;
@@ -375,7 +374,7 @@ input:focus, .form-control:focus{
   background: $dark;
   padding: 16rem 0 2rem;
   margin: 0 auto;
-  @media only screen and (min-width: 80em){    
+  @media only screen and (min-width: 80em){
     padding: 7rem 0 2rem;
   }
 }
@@ -436,12 +435,12 @@ input:focus, .form-control:focus{
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  @media only screen and (min-width: 64em){    
+  @media only screen and (min-width: 64em){
     top: 57%;
   }
-  @media only screen and (min-width: 120em){    
+  @media only screen and (min-width: 120em){
     max-width: 864px;
-  }  
+  }
 }
 .register-form-radios{
   width: 10rem;
@@ -463,15 +462,15 @@ footer{
   background-color: $dark;
   padding: 2rem 10%;
   color: $creme;
-  @media only screen and (min-width: 120em){    
+  @media only screen and (min-width: 120em){
     max-width: 1920px;
-  }  
+  }
 }
 .footer-hr{
   width: 100%;
-  @media only screen and (min-width: 120em){    
+  @media only screen and (min-width: 120em){
     max-width: 1920px;
-  }  
+  }
 }
 .footer_ida{
   width: 70%;
@@ -479,13 +478,13 @@ footer{
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media only screen and (min-width: 40em){    
+  @media only screen and (min-width: 40em){
     flex-direction: row;
     justify-content: space-around;
-  }  
-  @media only screen and (min-width: 120em){    
+  }
+  @media only screen and (min-width: 120em){
     max-width: 1344px;
-  }  
+  }
 }
 .footer_ida a, .footer_social a{
   padding: 0.5rem;

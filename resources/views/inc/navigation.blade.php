@@ -8,8 +8,8 @@
   <div class="navbar">
     <ul class="navbar-nav space-around">
       <li class="nav-item">
-        <a class="nav-link hover-gold underline-effect Sofia-Pro" href="{{ url('articles') }}">Feed <span class="sr-only">(current)</span></a>
-      </li>      
+        <a class="nav-link hover-gold underline-effect Sofia-Pro" href="{{ url('articles') }}">Feed</a>
+      </li>
       <li class="nav-item tablet-li">
         <a class="nav-link hover-gold underline-effect Sofia-Pro" href="{{ url('articles') }}">Frontend</a>
       </li>
@@ -18,11 +18,11 @@
       </li>
       <li class="nav-item tablet-li">
         <a class="nav-link hover-gold underline-effect Sofia-Pro" href="{{ url('articles') }}">Design</a>
-      </li>      
+      </li>
     </ul>
   </div>
 </div>
-<div class="webler-nav-2nd-div"> 
+<div class="webler-nav-2nd-div">
 {{-- Search --}}
   <div class="container search-container">
     <div class="h-100">
@@ -30,7 +30,7 @@
         <div class="searchbar">
           <input class="search_input" type="search" name="search" placeholder="Suche in Hashtags # ...">
           <span class="search_icon hover-gold hover-nounderline">
-            <button type="submit" class="dark-backg text-creme noborder"><i class="fas fa-search hover-gold"></i></button>
+            <button type="submit" class="dark-backg text-creme text1-5rem noborder">&telrec;</button>
           </span>
         </div>
       </form>
@@ -57,13 +57,13 @@
           {{ Auth::user()->username }} <span class="caret"></span>
         </a>
         <div class="dark-backg text-creme navi-dropdown" aria-labelledby="navbarDropdown">
-          <a class="nav-link hover-gold Sofia-Pro text-left" href="{{ url('articles/create') }}" >Artikel schreiben</a>
+          <a class="nav-link hover-gold Sofia-Pro text-left" href="{{ url('articles/create') }}">Artikel schreiben</a>
           <a class="nav-link hover-gold Sofia-Pro text-left" href="{{ route('logout') }}"
               onclick="event.preventDefault();
                               document.getElementById('logout-form').submit();">
               {{ __('Ausloggen') }}
           </a>
-          <form id="logout-form" class="nodisplay" action="{{ route('logout') }}" method="POST" >
+          <form id="logout-form" class="nodisplay" action="{{ route('logout') }}" method="POST">
               @csrf
           </form>
         </div>

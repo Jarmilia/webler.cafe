@@ -10755,12 +10755,12 @@ p {
   font-size: 1.3rem;
 }
 
-.text1-8rem {
-  font-size: 1.8rem;
-}
-
 .text1-5rem {
   font-size: 1.5rem;
+}
+
+.text1-8rem {
+  font-size: 1.8rem;
 }
 
 .text-creme {
@@ -11136,7 +11136,6 @@ input:focus,
 .search_icon {
   height: 40px;
   width: 40PX;
-  color: #CBBBB8;
   padding: 10px 10px 15px 10px;
   float: right;
   display: flex;
