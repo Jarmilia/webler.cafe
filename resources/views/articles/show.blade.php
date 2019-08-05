@@ -1,14 +1,12 @@
 @extends ('layouts.app')
 
 @section('content')
+{{-- Show the Article --}}
     <div class="dark-backg artContent">
       <div id="imageDivId">
-        <img class="image-show" v-if="image" src="{{ asset('storage/cover_images') }}/{{ $article->cover_image }}">
-      </div>
-        <br>
-        <h1 class="margin-0-auto text-gold RobotoThin">{{$article->title}}</h1>
-        <br>
-      <br>
+        <img class="image-show" src="{{ asset('storage/cover_images') }}/{{ $article->cover_image }}">
+      </div>        
+        <h1 class="margin-0-auto margin3-4 text-gold RobotoThin">{{$article->title}}</h1>
       <div class="margin2-0 text-gold" >
         <p> {!! $article->hashtags !!} </p>
       </div>
@@ -24,6 +22,7 @@
       <div class="margin2-0" >
           <p> {!! $article->contentContinue !!} </p>
       </div>
+      {{-- User can edit and delete his own article --}}
     @if(!Auth::guest())
       @if(Auth::user()->id === $article->user_id || Auth::user()->role == 2)
         {!! Form::open(['action'=> ['ArticlesController@destroy', $article->id], 'method' => 'POST', 'class' => 'pull-right']) !!}
@@ -38,21 +37,4 @@
     </div>
 
 @endsection
-<script type="text/javascript">
-  const imageDivId = new Vue({
-    el: '#imageDivId',
-    data() {
-      return {
-        image: false,
-      }
-    },
-    methods: {
-      checkSrc(src) {
-        let noimage = 'noimage.png';
-        if(this.src != noimage){
-          this.image = true;
-        }
-      }
-    }
-  });
-</script>
+

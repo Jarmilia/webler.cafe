@@ -1,8 +1,6 @@
 <footer>
   <hr class="footer-hr">
-    <!-- - - - - - - - - - - - - - - - - - - - - - - -
-        KONTAKTDATEN, DATENSCHUTZ, IMPRESSUM, AGB'S
-    - - - - - - - - - - - - - - - - - - - - - - - - -->
+        {{-- KONTAKTDATEN, DATENSCHUTZ, IMPRESSUM, AGB'S --}}
     <div class="footer_ida">
       <a class="dark-backg text-creme pointer hover-gold" href="#">Kontakt</a>
       <a class="dark-backg text-creme pointer hover-gold" href="#">Datenschutz</a>

@@ -11,6 +11,7 @@
               {{ session('status') }}
             </div>
           @endif
+          {{-- Users articles --}}
           @if(count($articles) > 0 )
            <span><a href="{{ url('articles/create') }}" class="dark-backg text-creme hover-gold text1-3rem">Einen neuen Artikel schreiben</a></span>
           <h1 class="text-bigger text-gold dark-backg margin-top2">Übersicht deiner Artikel</h1>

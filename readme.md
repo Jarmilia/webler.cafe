@@ -29,11 +29,11 @@ https://www.mamp.info/en/
 Dort Apache und MySQL starten.
 
 #Datenbank installieren:
-Öffnen Sie in dem "webler.cafe"-Ordner, den "Database"-Unterordner. In weiterem Unterordner "db"  finden Sie die "database.sql" - Datei.
+Öffnen Sie in dem "webler.cafe"-Ordner, den "Database"-Unterordner. In weiterem Unterordner "db"  finden Sie die "weblercafe.sql" - Datei.
 
 1. Im Browser, bitte folgenden link öffnen: http://localhost/phpmyadmin/
 2. Neue Datenbank "webler.cafe" anlegen.
-3. Auf Importieren klicken -> Datei auswählen -> Ordner "webler.cafe" und Unterordner "Database" suchen. Dort im Unterordner "db" die "database.sql" - Datei auswählen.
+3. Auf Importieren klicken -> Datei auswählen -> Ordner "webler.cafe" und Unterordner "Database" suchen. Dort im Unterordner "db" die "weblercafe.sql" - Datei auswählen.
 
 ##Die Seiten abrufen:
 http://localhost/webler.cafe/public/

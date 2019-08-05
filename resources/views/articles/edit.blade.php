@@ -3,6 +3,7 @@
 @section('content')
 <div class="artContent">
   <h1 class="text-gold margin3-4 RobotoThin">Editiere deinen Artikel</h1>
+  {{-- how and edit articles contents --}}
   {!! Form::open(['action'=> ['ArticlesController@update', $article->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
   <div class="form-group">
     {{Form::label('title', 'Titel', ['class' => 'text1-3rem text-gold bold margin-top1'])}}
@@ -26,9 +27,9 @@
   </div>
   <div class="form-group">
     {{Form::label('contentContinue', 'Inhalt', ['class' => 'text1-3rem text-gold bold margin-top1'])}}
-    {{Form::textarea('content', $article->contentContinue, ['class' => 'form-control', 'rows' => '10', 'placeholder' => 'Inhalt des Artikels'])}}
+    {{Form::textarea('contentContinue', $article->contentContinue, ['class' => 'form-control', 'rows' => '10', 'placeholder' => 'Inhalt des Artikels'])}}
   </div>
-  <img  id="imageId" class="width50" v-if="image" src="{{ asset('storage/cover_images')}}/{{ $article->cover_image }}">
+  <img  id="imageId" class="width50" src="{{ asset('storage/cover_images')}}/{{ $article->cover_image }}">
   <div class="form-group">
     {{Form::label('cover_image', 'Bild hochladen', ['class' => 'block text1-3rem text-gold bold margin-top4'])}}
     {{Form::file('cover_image', ['class' => 'block text-gold bold upload dark-backg pointer'])}}
@@ -45,22 +46,3 @@
   </div>
 </div>
 @endsection
-<script type="text/javascript">
-  const imageId = new Vue({
-    el: '#imageId',
-    data() {
-      return {
-        image: false,
-      }
-    },
-    methods: {
-      checkUrl(url) {
-        //   let greet = document.querySelectorAll('.greeting');
-        let noimage = 'noimage.png';
-        if(this.url != noimage){
-          this.image = true;
-        }
-      }
-    }
-  });
-</script>

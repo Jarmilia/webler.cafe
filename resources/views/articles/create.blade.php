@@ -3,7 +3,7 @@
 @section('content')
   <div class="artContent">
     <h1 class="text-gold margin3-4 RobotoThin">Schreibe einen neuen Artikel</h1>
-    {{-- <p>{{dd(auth()->user()->id)}}</p> --}}
+    {{-- Form for creating an Article --}}
     {!! Form::open(['action'=> 'ArticlesController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
     <div class="form-group">
       {{Form::label('title', 'Titel', ['class' => 'text1-3rem text-gold bold margin-top1'])}}

@@ -59,33 +59,11 @@ class ArticlesController extends Controller
           'content' => 'required',
           'cover_image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:1999'
         ]);
-      //Handle File upload
-      if($request->hasFile('cover_image')){
-        // Get filename with the extension
-        $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-        //Get just filename
-        $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-        //Get just extension
-        $extension = $request->file('cover_image')->getClientOriginalExtension();
-        //Filename to store
-        $fileNameToStore = $filename.'_'.time().'.'.$extension;
-        //UploadImage
-        // $path = $request->file('cover_image')->storeAs('public/storage/cover_images', $fileNameToStore);
-        $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-      } else{
-        $fileNameToStore = 'noimage.png';
-      }
+            
       //create Article
       $article = new Article;
-      $article->title = $request->input('title');
-      $article->hashtags = $request->input('hashtags');
-      $article->summary = $request->input('summary');
-      $article->content = $request->input('content');
-      $article->subtitle = $request->input('subtitle');
-      $article->contentContinue = $request->input('contentContinue');
-      $article->user_id = auth()->user()->id;
-      $article->cover_image = $fileNameToStore;
-      $article->save();
+      $article->createFromRequest($request);
+
       return redirect('/articles')->with('success', 'Du hast ein Artikel geschrieben, danke!');
     }
     /**
@@ -120,45 +98,16 @@ class ArticlesController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function update(Request $request, $id)
-    {
-        $this->validate($request, [
-            'title' => 'required',
-            'hashtags' => 'required',
-            'content' => 'required'
-            ]);
-             if($request->hasFile('cover_image')){
-                 // Get filename with the extension
-                 $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-                 //Get just filename
-                 $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-                 //Get just extension
-                 $extension = $request->file('cover_image')->getClientOriginalExtension();
-                 //Filename to store
-                 $fileNameToStore = $filename.'_'.time().'.'.$extension;
-                 //UploadImage
-                 $path = $request->file('cover_image')->storeAs('cover_images', $fileNameToStore);
-             }
+    public function update(Request $request, $id){
 
-            //create Article
-            $article = Article::find($id);
-            $article->title = $request->input('title');
-            $article->content = $request->input('content');
-             if($request->hasFile('cover_image')){
-               // Get filename with the extension
-               $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
-               //Get just filename
-               $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-               //Get just extension
-               $extension = $request->file('cover_image')->getClientOriginalExtension();
-               //Filename to store
-               $fileNameToStore = $filename.'_'.time().'.'.$extension;
-               //UploadImage
-               $path = $request->file('cover_image')->storeAs('/cover_images', $fileNameToStore);
-               $article->cover_image = $fileNameToStore;
-             }
-            $article->save();
-            return redirect('/articles')->with('success', 'Artikel wurde editiert');
+      $this->validate($request, [
+        'title' => 'required',
+        'hashtags' => 'required',
+        'content' => 'required'
+        ]);
+        $article = Article::find($id);
+        $article->updateArt($request);
+        return redirect('/articles')->with('success', 'Artikel wurde editiert');
     }
     /**
      * Remove the specified article from storage.
