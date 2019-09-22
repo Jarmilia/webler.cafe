@@ -17,25 +17,9 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('articles', require('./components/Articles.vue').default);
 
 new Vue({
   el: '#app',
-  created: function created() {
-    var _this = this;
 
-    axios.get('http://localhost/webler.cafe/public/api/articles.json').then(function (response) {
-      _this.articlesJson = response.data;
-    })["catch"](function () {
-      alert('Es gibt ein Problem!');
-    });
-  },
-  data: function data() {
-    return {
-      articlesJson: [],
-      errors: {},
-    };
-  },
-  methods: function methods(){
-
-  }
 });

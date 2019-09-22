@@ -166,7 +166,7 @@ class ArticlesController extends Controller
     }
 
     public function articlesJson(){
-
+      // $limit = 4;
       $articles = Article::orderBy('created_at', 'desc')->get();
       for ($i=0; $i < sizeof($articles) -1 ; $i++) {
         $userId = $articles[$i]->user_id;
