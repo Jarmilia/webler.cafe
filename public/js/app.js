@@ -32135,7 +32135,23 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 new Vue({
-  el: '#app'
+  el: '#app',
+  created: function created() {
+    var _this = this;
+
+    axios.get('http://localhost/webler.cafe/public/api/articles.json').then(function (response) {
+      _this.articlesJson = response.data;
+    })["catch"](function () {
+      alert('Es gibt ein Problem!');
+    });
+  },
+  data: function data() {
+    return {
+      articlesJson: [],
+      errors: {}
+    };
+  },
+  methods: function methods() {}
 });
 
 /***/ }),

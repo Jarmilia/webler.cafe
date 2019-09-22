@@ -8,7 +8,12 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>{{ config('app.name', 'webler.cafe') }}</title>
   <!-- Scripts -->
-  <script src="{{ asset('js/app.js') }}" defer></script>
+  <script type="text/javascript" src="{{ asset('js/app.js') }}" defer></script>
+  <script type="text/javascript"
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
   <!-- Fonts -->
   <link rel="dns-prefetch" href="//fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Article;
+use App\User;
 
 class ArticlesController extends Controller
 {
@@ -17,7 +18,7 @@ class ArticlesController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show', 'search']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'search', 'articlesJson']]);
     }
 
     /**
@@ -29,7 +30,7 @@ class ArticlesController extends Controller
     {
         //show all articles
         $articles = Article::orderBy('created_at', 'desc')->get();
-
+        // return Article::latest()->get();
         return view ('articles.index')->with('articles', $articles);
     }
 
@@ -59,7 +60,7 @@ class ArticlesController extends Controller
           'content' => 'required',
           'cover_image' => 'image|nullable|mimes:jpeg,png,jpg,gif,svg|max:1999'
         ]);
-            
+
       //create Article
       $article = new Article;
       $article->createFromRequest($request);
@@ -132,7 +133,7 @@ class ArticlesController extends Controller
       $article->delete();
       return redirect('/articles')->with('success', 'Artikel wurde gelöscht');
     }
-    
+
     /**
      * Remove the image from storage.
      *
@@ -151,7 +152,7 @@ class ArticlesController extends Controller
         Storage::delete('public/storage/cover_images/'.$article->cover_image);
       }
     }
-    
+
     /**
      * The search function.
      *
@@ -162,5 +163,16 @@ class ArticlesController extends Controller
       $search = $request->get('search');
       $articles = Article::where('hashtags', 'like', '%'. $search. '%')->get();
       return view ('articles.index')->with('articles', $articles);
+    }
+
+    public function articlesJson(){
+
+      $articles = Article::orderBy('created_at', 'desc')->get();
+      for ($i=0; $i < sizeof($articles) -1 ; $i++) {
+        $userId = $articles[$i]->user_id;
+        $user = User::find($userId);
+        $articles[$i]->user_name = $user->username;
+      }
+      return $articles->toJson();
     }
 }

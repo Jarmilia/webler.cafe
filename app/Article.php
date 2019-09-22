@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class Article extends Model
 {
   protected $fillable = [
-   ''
+   'title', 'hashtags', 'summary', 'content', 'subtitle', 'cover_image', 'contentContinue'
   ];
 
     public function user(){
@@ -27,7 +27,7 @@ class Article extends Model
         $fileNameToStore = $filename.'_'.time().'.'.$extension;
         //UploadImage
         $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
-      } 
+      }
       else{
         $fileNameToStore = 'noimage.png';
       }
@@ -42,7 +42,7 @@ class Article extends Model
       $this->subtitle = $request->input('subtitle');
       $this->contentContinue = $request->input('contentContinue');
       $fileNameToStore = $this->coverImageHandling($request);
-          
+
       if($request->hasFile('cover_image')){
           // Get filename with the extension
           $filenameWithExt = $request->file('cover_image')->getClientOriginalName();
